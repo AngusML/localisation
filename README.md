@@ -3,17 +3,13 @@
 
 INFO:
 =============
-using tag 0, 1, 2, 3, and 4 of tag36h11 family
-height and width of each tag is 0.05m by 50mm
+/n using tag 0, 1, 2, 3, and 4 of tag36h11 family
+/n height and width of each tag is 0.05m by 50mm
 
 
-
-INSTRUCTIONS
-=============
 INITIAL DIRECTORY SETUP
-mkdir -p ~/ros2_ws/src
-=============
-=============
+===
+/n mkdir -p ~/ros2_ws/src
 
 PACKAGES INSTALLATION:
 =============
@@ -39,9 +35,10 @@ STEPS TO DISPLAY TAG/S IN RVIZ:
   1. ros2 launch realsense2_camera rs_launch.py
   2. ros2 launch aruco_ros single.launch.py
   3. rviz2
-    ON RVIZ SIMULATOR:
-    a) click 'Add'
-    b) click 'By topic'
-    c) click 'image' under dropdown '/result' which is under dropdown '/aruco_single'
-  4. ./marker_publish
+    /n ON RVIZ SIMULATOR:
+    /n a) click 'Add'
+    /n b) click 'By topic'
+    /n c) click 'image' under dropdown '/result' which is under dropdown '/aruco_single'
+  4. './marker_publish'
+
 /n NOTE: Image of what camera lens is pointing at will be displayed at bottom left window.
