@@ -45,4 +45,4 @@ STEPS TO DISPLAY TAG/S IN RVIZ:
     /n c) click 'image' under dropdown '/result' which is under dropdown '/aruco_single'
   4. ./marker_publish
 
-/n NOTE: Image of what camera lens is pointing at will be displayed at bottom left window.
+     NOTE: Image of what camera lens is pointing at will be displayed at bottom left window.
