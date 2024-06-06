@@ -23,9 +23,8 @@ PACKAGES INSTALLATION:
 2. cd ~/colcon_ws/src
 3. git clone https://github.com/IntelRealSense/realsense-ros.git
 NOTE: file named 'realsense-ros' will appear in /src directory after this step
+/n OPTIONAL: git clone https://github.com/pal-robotics/realsense_gazebo_plugin.git
 
-OPTIONAL: git clone https://github.com/pal-robotics/realsense_gazebo_plugin.git
-===
 
 [aruco_ros]
 1. cd ~/colcon_ws/src
