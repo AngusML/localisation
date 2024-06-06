@@ -19,18 +19,18 @@ PACKAGES INSTALLATION:
 2. cd ~/colcon_ws/src
 3. git clone https://github.com/IntelRealSense/realsense-ros.git
 
-/n NOTE: file named 'realsense-ros' will appear in /src directory after this step
+   NOTE: file named 'realsense-ros' will appear in /src directory after this step
 
-/n OPTIONAL: git clone https://github.com/pal-robotics/realsense_gazebo_plugin.git
+   OPTIONAL: git clone https://github.com/pal-robotics/realsense_gazebo_plugin.git
 
 
 [aruco_ros]
 1. cd ~/colcon_ws/src
 2. git clone https://github.com/pal-robotics/aruco_ros.git
 
-/n NOTE: file named 'aruco_ros' will appear in /src directory
+   NOTE: file named 'aruco_ros' will appear in /src directory
 
-/n OPTIONAL: git clone https://github.com/AprilRobotics/apriltag.git
+   OPTIONAL: git clone https://github.com/AprilRobotics/apriltag.git
 
 
 STEPS TO DISPLAY TAG/S IN RVIZ:
