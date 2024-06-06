@@ -3,13 +3,13 @@
 
 INFO:
 =============
-/n using tag 0, 1, 2, 3, and 4 of tag36h11 family
+using tag 0, 1, 2, 3, and 4 of tag36h11 family
 /n height and width of each tag is 0.05m by 50mm
 
 
 INITIAL DIRECTORY SETUP
 ===
-/n mkdir -p ~/ros2_ws/src
+mkdir -p ~/ros2_ws/src
 
 PACKAGES INSTALLATION:
 =============
@@ -18,7 +18,7 @@ PACKAGES INSTALLATION:
 1. follow startup guide booklet (that comes in the box).
 2. cd ~/colcon_ws/src
 3. git clone https://github.com/IntelRealSense/realsense-ros.git
-/n NOTE: file named 'realsense-ros' will appear in /src directory after this step
+NOTE: file named 'realsense-ros' will appear in /src directory after this step
 /n OPTIONAL: git clone https://github.com/pal-robotics/realsense_gazebo_plugin.git
 
 
@@ -39,6 +39,6 @@ STEPS TO DISPLAY TAG/S IN RVIZ:
     /n a) click 'Add'
     /n b) click 'By topic'
     /n c) click 'image' under dropdown '/result' which is under dropdown '/aruco_single'
-  4. './marker_publish'
+  4. ./marker_publish
 
 /n NOTE: Image of what camera lens is pointing at will be displayed at bottom left window.
