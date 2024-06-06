@@ -7,7 +7,6 @@ height and width of each tag is 0.05m by 50mm
 
 
 
-=============
 INSTRUCTIONS:
 =============
 INITIAL DIRECTORY SETUP
