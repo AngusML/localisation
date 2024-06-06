@@ -1,0 +1,70 @@
+[0.014s] Invoking command in '/home/angus/path/to/colcon_ws/build/aruco': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/angus/ros2_ws/install/sjtu_drone_control:/home/angus/ros2_ws/install/sjtu_drone_bringup:/opt/ros/humble /usr/bin/cmake --build /home/angus/path/to/colcon_ws/build/aruco -- -j16 -l16
+[0.056s] [ 11%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/dictionary.cpp.o[0m
+[0.057s] [ 11%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/cvdrawingutils.cpp.o[0m
+[0.057s] [ 22%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/fractaldetector.cpp.o[0m
+[0.057s] [ 22%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/cameraparameters.cpp.o[0m
+[0.058s] [ 33%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/debug.cpp.o[0m
+[0.058s] [ 33%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/ippe.cpp.o[0m
+[0.058s] [ 38%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/dictionary_based.cpp.o[0m
+[0.060s] [ 44%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/markerdetector_impl.cpp.o[0m
+[0.071s] [ 55%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/markerdetector.cpp.o[0m
+[0.071s] [ 55%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/marker.cpp.o[0m
+[0.076s] [ 61%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/markerlabeler.cpp.o[0m
+[0.080s] [ 66%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/fractallabelers/fractalmarker.cpp.o[0m
+[0.084s] [ 72%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/posetracker.cpp.o[0m
+[0.086s] [ 77%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/markermap.cpp.o[0m
+[0.100s] [ 83%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/fractallabelers/fractallabeler.cpp.o[0m
+[0.100s] [ 88%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/fractallabelers/fractalmarkerset.cpp.o[0m
+[0.704s] [ 94%] [32mBuilding CXX object CMakeFiles/aruco.dir/src/aruco/fractallabelers/fractalposetracker.cpp.o[0m
+[5.490s] [100%] [32m[1mLinking CXX shared library libaruco.so[0m
+[5.788s] [100%] Built target aruco
+[5.799s] Invoked command in '/home/angus/path/to/colcon_ws/build/aruco' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/angus/ros2_ws/install/sjtu_drone_control:/home/angus/ros2_ws/install/sjtu_drone_bringup:/opt/ros/humble /usr/bin/cmake --build /home/angus/path/to/colcon_ws/build/aruco -- -j16 -l16
+[5.859s] Invoking command in '/home/angus/path/to/colcon_ws/build/aruco': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/angus/ros2_ws/install/sjtu_drone_control:/home/angus/ros2_ws/install/sjtu_drone_bringup:/opt/ros/humble /usr/bin/cmake --install /home/angus/path/to/colcon_ws/build/aruco
+[5.866s] -- Install configuration: ""
+[5.866s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/lib/libaruco.so
+[5.872s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include
+[5.872s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco
+[5.872s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/dictionary.h
+[5.872s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/markerdetector_impl.h
+[5.873s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/cvdrawingutils.h
+[5.873s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/dictionary_based.h
+[5.873s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/aruco_cvversioning.h
+[5.873s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/markermap.h
+[5.873s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/levmarq.h
+[5.873s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/marker.h
+[5.873s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/cameraparameters.h
+[5.874s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/timers.h
+[5.874s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/aruco_export.h
+[5.874s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/posetracker.h
+[5.874s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/debug.h
+[5.874s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/fractaldetector.h
+[5.874s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/ippe.h
+[5.874s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/markerdetector.h
+[5.875s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/fractallabelers
+[5.875s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/fractallabelers/fractalposetracker.h
+[5.875s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/fractallabelers/fractallabeler.h
+[5.875s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/fractallabelers/fractalmarkerset.h
+[5.875s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/fractallabelers/fractalmarker.h
+[5.875s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/markerlabeler.h
+[5.875s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/aruco.h
+[5.876s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/include/aruco/picoflann.h
+[5.876s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/environment/library_path.sh
+[5.876s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/environment/library_path.dsv
+[5.876s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/ament_index/resource_index/package_run_dependencies/aruco
+[5.876s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/ament_index/resource_index/parent_prefix_path/aruco
+[5.877s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/environment/ament_prefix_path.sh
+[5.877s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/environment/ament_prefix_path.dsv
+[5.877s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/environment/path.sh
+[5.877s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/environment/path.dsv
+[5.877s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/local_setup.bash
+[5.877s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/local_setup.sh
+[5.878s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/local_setup.zsh
+[5.878s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/local_setup.dsv
+[5.878s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/package.dsv
+[5.878s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/ament_index/resource_index/packages/aruco
+[5.878s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/cmake/ament_cmake_export_include_directories-extras.cmake
+[5.878s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/cmake/ament_cmake_export_libraries-extras.cmake
+[5.879s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/cmake/arucoConfig.cmake
+[5.879s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/cmake/arucoConfig-version.cmake
+[5.879s] -- Installing: /home/angus/path/to/colcon_ws/install/aruco/share/aruco/package.xml
+[5.881s] Invoked command in '/home/angus/path/to/colcon_ws/build/aruco' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/angus/ros2_ws/install/sjtu_drone_control:/home/angus/ros2_ws/install/sjtu_drone_bringup:/opt/ros/humble /usr/bin/cmake --install /home/angus/path/to/colcon_ws/build/aruco

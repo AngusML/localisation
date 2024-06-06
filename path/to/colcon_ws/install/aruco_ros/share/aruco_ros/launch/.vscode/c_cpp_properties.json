@@ -1,0 +1,31 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/angus/path/to/colcon_ws/install/usb_cam/include/**",
+        "/home/angus/path/to/colcon_ws/install/realsense2_camera/include/**",
+        "/home/angus/path/to/colcon_ws/install/realsense2_camera_msgs/include/**",
+        "/home/angus/path/to/colcon_ws/install/aruco_ros/include/**",
+        "/home/angus/path/to/colcon_ws/install/aruco_msgs/include/**",
+        "/home/angus/path/to/colcon_ws/install/aruco/include/**",
+        "/home/angus/ros2_ws/install/sjtu_drone_description/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/angus/path/to/colcon_ws/src/aruco_ros/aruco/include/**",
+        "/home/angus/path/to/colcon_ws/src/aruco_ros/aruco_ros/include/**",
+        "/home/angus/path/to/colcon_ws/src/realsense-ros/realsense2_camera/include/**",
+        "/home/angus/path/to/colcon_ws/src/usb_cam/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

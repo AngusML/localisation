@@ -1,0 +1,135 @@
+[0.010s] Invoking command in '/home/angus/path/to/colcon_ws/build/usb_cam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/angus/ros2_ws/install/sjtu_drone_control:/home/angus/ros2_ws/install/sjtu_drone_bringup:/opt/ros/humble /usr/bin/cmake /home/angus/path/to/colcon_ws/src/usb_cam -DCMAKE_INSTALL_PREFIX=/home/angus/path/to/colcon_ws/install/usb_cam
+[0.113s] -- The C compiler identification is GNU 11.4.0
+[0.185s] -- The CXX compiler identification is GNU 11.4.0
+[0.193s] -- Detecting C compiler ABI info
+[0.251s] -- Detecting C compiler ABI info - done
+[0.256s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.256s] -- Detecting C compile features
+[0.257s] -- Detecting C compile features - done
+[0.259s] -- Detecting CXX compiler ABI info
+[0.324s] -- Detecting CXX compiler ABI info - done
+[0.329s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.329s] -- Detecting CXX compile features
+[0.329s] -- Detecting CXX compile features - done
+[0.333s] -- Found ament_cmake_auto: 1.3.8 (/opt/ros/humble/share/ament_cmake_auto/cmake)
+[0.590s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.789s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.795s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.805s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.821s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.841s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.908s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.912s] -- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.008s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.031s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.069s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.082s] -- Looking for pthread.h
+[1.145s] -- Looking for pthread.h - found
+[1.145s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.204s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.205s] -- Found Threads: TRUE  
+[1.612s] -- Found OpenCV: /usr (found version "4.5.4") 
+[1.616s] -- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") 
+[1.616s] -- Checking for module 'libavcodec'
+[1.629s] --   Found libavcodec, version 58.134.100
+[1.660s] -- Checking for module 'libavutil'
+[1.672s] --   Found libavutil, version 56.70.100
+[1.701s] -- Checking for module 'libswscale'
+[1.712s] --   Found libswscale, version 5.9.100
+[1.750s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.782s] -- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[1.791s] -- Added test 'copyright' to check source files copyright and LICENSE
+[1.797s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[1.797s] -- Configured cppcheck include dirs: /home/angus/path/to/colcon_ws/src/usb_cam/include
+[1.797s] -- Configured cppcheck exclude dirs and/or files: 
+[1.802s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[1.802s] -- Configured cpplint exclude dirs and/or files: 
+[1.803s] -- Added test 'flake8' to check Python code syntax and style conventions
+[1.805s] -- Added test 'lint_cmake' to check CMake code style
+[1.806s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[1.812s] -- Added test 'uncrustify' to check C / C++ code style
+[1.812s] -- Configured uncrustify additional arguments: 
+[1.813s] -- Added test 'xmllint' to check XML markup files
+[1.816s] -- Configuring done
+[1.840s] -- Generating done
+[1.842s] -- Build files have been written to: /home/angus/path/to/colcon_ws/build/usb_cam
+[1.851s] Invoked command in '/home/angus/path/to/colcon_ws/build/usb_cam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/angus/ros2_ws/install/sjtu_drone_control:/home/angus/ros2_ws/install/sjtu_drone_bringup:/opt/ros/humble /usr/bin/cmake /home/angus/path/to/colcon_ws/src/usb_cam -DCMAKE_INSTALL_PREFIX=/home/angus/path/to/colcon_ws/install/usb_cam
+[1.852s] Invoking command in '/home/angus/path/to/colcon_ws/build/usb_cam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/angus/ros2_ws/install/sjtu_drone_control:/home/angus/ros2_ws/install/sjtu_drone_bringup:/opt/ros/humble /usr/bin/cmake --build /home/angus/path/to/colcon_ws/build/usb_cam -- -j16 -l16
+[1.896s] [ 28%] [32mBuilding CXX object CMakeFiles/usb_cam_node_exe.dir/rclcpp_components/node_main_usb_cam_node_exe.cpp.o[0m
+[1.896s] [ 28%] [32mBuilding CXX object CMakeFiles/usb_cam.dir/src/usb_cam.cpp.o[0m
+[1.896s] [ 28%] [32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o[0m
+[1.896s] [ 28%] [32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o[0m
+[2.543s] [ 35%] [32m[1mLinking CXX static library libgtest_main.a[0m
+[2.575s] [ 35%] Built target gtest_main
+[3.220s] [ 42%] [32m[1mLinking CXX shared library libusb_cam.so[0m
+[3.384s] [ 42%] Built target usb_cam
+[3.403s] [ 50%] [32mBuilding CXX object CMakeFiles/usb_cam_node.dir/src/ros2/usb_cam_node.cpp.o[0m
+[4.073s] [ 57%] [32m[1mLinking CXX static library libgtest.a[0m
+[4.126s] [ 57%] Built target gtest
+[4.145s] [ 71%] [32mBuilding CXX object CMakeFiles/test_pixel_formats.dir/test/test_pixel_formats.cpp.o[0m
+[4.145s] [ 71%] [32mBuilding CXX object CMakeFiles/test_usb_cam_utils.dir/test/test_usb_cam_utils.cpp.o[0m
+[4.259s] [ 78%] [32m[1mLinking CXX executable usb_cam_node_exe[0m
+[4.365s] [ 78%] Built target usb_cam_node_exe
+[5.049s] [ 85%] [32m[1mLinking CXX executable test_usb_cam_utils[0m
+[5.168s] [ 85%] Built target test_usb_cam_utils
+[5.293s] [ 92%] [32m[1mLinking CXX executable test_pixel_formats[0m
+[5.406s] [ 92%] Built target test_pixel_formats
+[8.881s] [100%] [32m[1mLinking CXX shared library libusb_cam_node.so[0m
+[9.161s] [100%] Built target usb_cam_node
+[9.170s] Invoked command in '/home/angus/path/to/colcon_ws/build/usb_cam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/angus/ros2_ws/install/sjtu_drone_control:/home/angus/ros2_ws/install/sjtu_drone_bringup:/opt/ros/humble /usr/bin/cmake --build /home/angus/path/to/colcon_ws/build/usb_cam -- -j16 -l16
+[9.216s] Invoking command in '/home/angus/path/to/colcon_ws/build/usb_cam': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/angus/ros2_ws/install/sjtu_drone_control:/home/angus/ros2_ws/install/sjtu_drone_bringup:/opt/ros/humble /usr/bin/cmake --install /home/angus/path/to/colcon_ws/build/usb_cam
+[9.222s] -- Install configuration: ""
+[9.223s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/environment/library_path.sh
+[9.223s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/environment/library_path.dsv
+[9.223s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/lib/usb_cam/usb_cam_node_exe
+[9.224s] -- Set runtime path of "/home/angus/path/to/colcon_ws/install/usb_cam/lib/usb_cam/usb_cam_node_exe" to ""
+[9.224s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/lib/usb_cam/show_image.py
+[9.224s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/lib/libusb_cam.so
+[9.225s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/lib/libusb_cam_node.so
+[9.229s] -- Set runtime path of "/home/angus/path/to/colcon_ws/install/usb_cam/lib/libusb_cam_node.so" to ""
+[9.229s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include
+[9.229s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam
+[9.229s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/utils.hpp
+[9.230s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/usb_cam.hpp
+[9.230s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/formats
+[9.230s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/formats/rgb.hpp
+[9.230s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/formats/uyvy.hpp
+[9.230s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/formats/utils.hpp
+[9.230s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/formats/mjpeg.hpp
+[9.230s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/formats/yuyv.hpp
+[9.230s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/formats/mono.hpp
+[9.230s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/formats/m420.hpp
+[9.230s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/formats/pixel_format_base.hpp
+[9.230s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/formats/av_pixel_format_helper.hpp
+[9.231s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/usb_cam_node.hpp
+[9.231s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/conversions.hpp
+[9.231s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/include/usb_cam/constants.hpp
+[9.231s] -- Up-to-date: /home/angus/path/to/colcon_ws/install/usb_cam/lib/libusb_cam_node.so
+[9.231s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/launch
+[9.231s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/launch/__init__.py
+[9.231s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/launch/camera.launch.py
+[9.231s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/launch/camera_config.py
+[9.232s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/config
+[9.232s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/config/params_1.yaml
+[9.232s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/config/params_2.yaml
+[9.232s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/config/camera_info.yaml
+[9.232s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/ament_index/resource_index/package_run_dependencies/usb_cam
+[9.232s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/ament_index/resource_index/parent_prefix_path/usb_cam
+[9.232s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/environment/ament_prefix_path.sh
+[9.232s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/environment/ament_prefix_path.dsv
+[9.233s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/environment/path.sh
+[9.233s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/environment/path.dsv
+[9.233s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/local_setup.bash
+[9.233s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/local_setup.sh
+[9.233s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/local_setup.zsh
+[9.233s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/local_setup.dsv
+[9.233s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/package.dsv
+[9.233s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/ament_index/resource_index/packages/usb_cam
+[9.234s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/ament_index/resource_index/rclcpp_components/usb_cam
+[9.234s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/cmake/ament_cmake_export_libraries-extras.cmake
+[9.234s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/cmake/ament_cmake_export_dependencies-extras.cmake
+[9.234s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/cmake/ament_cmake_export_include_directories-extras.cmake
+[9.234s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/cmake/usb_camConfig.cmake
+[9.234s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/cmake/usb_camConfig-version.cmake
+[9.234s] -- Installing: /home/angus/path/to/colcon_ws/install/usb_cam/share/usb_cam/package.xml
+[9.236s] Invoked command in '/home/angus/path/to/colcon_ws/build/usb_cam' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/angus/ros2_ws/install/sjtu_drone_control:/home/angus/ros2_ws/install/sjtu_drone_bringup:/opt/ros/humble /usr/bin/cmake --install /home/angus/path/to/colcon_ws/build/usb_cam
