@@ -3,8 +3,8 @@
 
 INFO:
 =============
-using tag 0, 1, 2, 3, and 4 of tag36h11 family
-/n height and width of each tag is 0.05m by 50mm
+1. using tag 0, 1, 2, 3, and 4 of tag36h11 family
+2. height and width of each tag is 0.05m by 50mm
 
 
 INITIAL DIRECTORY SETUP
