@@ -1,5 +1,8 @@
 # localisation
 
+NOTE:
+For this project, I'm using ROS2 and ubuntu version is humble.
+This README.md is for client to follow the steps for ease of setup (if needed) and assessment of the work I have done.
 
 INFO:
 =============
