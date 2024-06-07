@@ -66,5 +66,6 @@ GOING FORWARD:
 In the lines that prints the location of tags, going forward we can potential add the following approaches that can be used for UR3 drawing:
 Offsetting - xyz position of tags on paper will compute camera's fixed position. Then setting an integer or double value in mm (as per the unnit of the code) of camera's fixed position relative to UR3 base position and using forward kinematics to find end effectors position. This allows the code to integrate to the path planning of UR3 to draw on paper.
 
+NOTE: CHANGE getTranslation() function TO RETURN THE POSITION OF EACH ID (PAIR IT WITH EACH ID) (aka. each ‘i’ iterator)
 
 
