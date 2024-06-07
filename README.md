@@ -49,3 +49,22 @@ STEPS TO DISPLAY TAG/S IN RVIZ:
   4. ./marker_publish
 
      NOTE: Image of what camera lens is pointing at will be displayed at bottom left window.
+
+
+
+
+LOCATION OF TAGS:
+=============
+  ON TERMINAL:
+  1. I have implemented a function called getTransform() from a library
+  2. I have created a function to called translation() to extract translation part of 4x4 transform that contains translation and rotation
+  3. using 'std::cout()' and 'ROS_INFO_STREAM()' I have isolated to a callback function (that publishes markers) and printed out the x y z position/location of tag/s in real-world 3D space.
+
+
+GOING FORWARD:
+=============
+In the lines that prints the location of tags, going forward we can potential add the following approaches that can be used for UR3 drawing:
+Offsetting - xyz position of tags on paper will compute camera's fixed position. Then setting an integer or double value in mm (as per the unnit of the code) of camera's fixed position relative to UR3 base position and using forward kinematics to find end effectors position. This allows the code to integrate to the path planning of UR3 to draw on paper.
+
+
+
