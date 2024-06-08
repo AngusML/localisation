@@ -46,9 +46,10 @@ STEPS TO DISPLAY TAG/S IN RVIZ:
     /n a) click 'Add'
     /n b) click 'By topic'
     /n c) click 'image' under dropdown '/result' which is under dropdown '/aruco_single'
-  4. ./marker_publish
+  4. ./marker_publisher
+     NOTE: run this executable in the build directory OR hit run in vscode (for 'marker_publisher' executable). This executes the code in marker_publish.cpp
 
-     NOTE: Image of what camera lens is pointing at will be displayed at bottom left window.
+RESULT OF THESE STEPS: tag detection & visualisation should be visible of what camera lens is pointing at will be visible and displayed at bottom left window. Tag ID's respective estimated position should be visible and printed in the terminal.
 
 
 
