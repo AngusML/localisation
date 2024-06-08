@@ -469,7 +469,7 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
 
           //RCLCPP_INFO(this->get_logger(), " [8] Processing marker %zu (ID: %d)", i, markers_[i].id);
           marker_i = marker_msg_->markers.at(i);
-          RCLCPP_INFO(this->get_logger(), "LINE ABOVE IS: WHERE IT ALALLLLLLL BEGANNNNNNNNNNNNNNN");
+          // RCLCPP_INFO(this->get_logger(), "LINE ABOVE IS: WHERE IT ALALLLLLLL BEGANNNNNNNNNNNNNNN");
           marker_i.header.stamp = curr_stamp;
           marker_i.id = markers_.at(i).id;
           marker_i.confidence = 1.0;
@@ -480,7 +480,9 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
             tf2::Transform transform = aruco_ros::arucoMarker2Tf2(markers_[i]);
             transform = static_cast<tf2::Transform>(cameraToReference) * transform;
             tf2::toMsg(transform, marker_i.pose.pose);
-            // RCLCPP_INFO_STREAM(this->get_logger(), "I think position is: " << "x = " << marker_i.pose.pose.position.x << "  y = " << marker_i.pose.pose.position.y << "z = " << marker_i.pose.pose.position.z);
+            // RCLCPP_INFO_STREAM(this->get_logger(), "tag ID (using tags from tag36h11 family): " << marker_i.id << "     x position = " << marker_i.pose.pose.position.x << "  y position = " << marker_i.pose.pose.position.y << "Depth (z position) = " << marker_i.pose.pose.position.z);
+
+            RCLCPP_INFO_STREAM(this->get_logger(), "tag ID: " << marker_i.id << "     |     POSITION:  x-horizontal: " << marker_i.pose.pose.position.x << "  y-vertical: " << marker_i.pose.pose.position.y << "  z-depth: " << marker_i.pose.pose.position.z<< "      |      QUARTERNION: w: " << marker_i.pose.pose.orientation.w << "  x: " << marker_i.pose.pose.orientation.x << "  y: " << marker_i.pose.pose.orientation.x << "z: " << marker_i.pose.pose.orientation.x);
 
 
             marker_i.header.frame_id = reference_frame_;
@@ -566,32 +568,29 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
 
 
 
-             /*OBTAINED THE POSITION VALUES OF THE MARKERS*/
+            //  /*OBTAINED THE POSITION VALUES OF THE MARKERS*/
 
 
-            // getTranslation returns a vector of size 3 (x, y, z)
-              markerTrans_ = getTranslation( markers_[i].getTransformMatrix() ); // one [x y z] vector returned per iteration
+            // // getTranslation returns a vector of size 3 (x, y, z)
+            //   markerTrans_ = getTranslation( markers_[i].getTransformMatrix() ); // one [x y z] vector returned per iteration
 
-              // markerTrans_.push_back( getTranslation( markers_[i].getTransformMatrix() ) );
-              pairing_ID_Pose_.push_back(std::make_pair(markers_[i].id,markerTrans_));
+            //   // markerTrans_.push_back( getTranslation( markers_[i].getTransformMatrix() ) );
+            //   pairing_ID_Pose_.push_back(std::make_pair(markers_[i].id,markerTrans_));
 
-              if (pairing_ID_Pose_.size() >= 60000) { //estimated_size
-                  estimated_size = estimated_size * 2;  // Increase size by a factor (adjust as needed)
-                  pairing_ID_Pose_.resize(estimated_size);
-              }
-              // RCLCPP_INFO_STREAM(this->get_logger(), "tag ID: " << pairing_ID_Pose_[j].first << " <-- tag36h11 family   |   (transform derived position:" << "   X: " << pairing_ID_Pose_[j].second.at(0) << "   Y: " << pairing_ID_Pose_[j].second.at(1)<< "   Z: " << pairing_ID_Pose_[j].second.at(2) << " )");
-              j++;
+            //   if (pairing_ID_Pose_.size() >= 60000) { //estimated_size
+            //       estimated_size = estimated_size * 2;  // Increase size by a factor (adjust as needed)
+            //       pairing_ID_Pose_.resize(estimated_size);
+            //   }
+            //   RCLCPP_INFO_STREAM(this->get_logger(), "tag ID: " << pairing_ID_Pose_[j].first << " <-- tag36h11 family   |   (transform derived position:" << "   X: " << pairing_ID_Pose_[j].second.at(0) << "   Y: " << pairing_ID_Pose_[j].second.at(1)<< "   Z: " << pairing_ID_Pose_[j].second.at(2) << " )");
+            //   j++;
 
-            RCLCPP_INFO_STREAM(this->get_logger(), "I think position is: " << "x = " << marker_i.pose.pose.position.x << "  y = " << marker_i.pose.pose.position.y << "z = " << marker_i.pose.pose.position.z);
-
-
-              //            || 1 [x y z]    ||   2 [x y z]    ||    3 [x y z]
+            //   //            || 1 [x y z]    ||   2 [x y z]    ||    3 [x y z]
 
 
 
 
 
-              // RCLCPP_INFO_STREAM(this->get_logger(), "translation x y z is:" << markerTrans_.at(i).at(0)<< markerTrans_.at(i).at(1)<< markerTrans_.at(i).at(2));
+            //   // RCLCPP_INFO_STREAM(this->get_logger(), "translation x y z is:" << markerTrans_.at(i).at(0)<< markerTrans_.at(i).at(1)<< markerTrans_.at(i).at(2));
 
         }
 
