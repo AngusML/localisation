@@ -165,6 +165,7 @@ private:
   std_msgs::msg::UInt32MultiArray marker_list_msg_;
 
 public:   // std::vector<std::vector<double>> markerTrans_;
+  aruco_msgs::msg::Marker marker_i;
   std::vector<double> markerTrans_;
   // std::vector<double> markerTrans_;
   std::vector<std::pair<int,std::vector<double>>> pairing_ID_Pose_;
@@ -354,21 +355,100 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
       // ok, let's detect
       mDetector_.detect(inImage_, markers_, camParam_, marker_size_, false);                                                              // A NOTES: THE FIRST CORE FUNCTION FOR THIS EXECUTABLE TO DO ITS JOB
 
-      // marker array publish
-      if (publishMarkers) {
-        //RCLCPP_INFO(this->get_logger(), " [6] Calling function: getTransform...");
+  //     // marker array publish
+  //     if (publishMarkers) {
+  //       RCLCPP_INFO(this->get_logger(), "DOESN'T RUN - enters this IFFF LOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOPPPPPPPPPPPPPPPPPPPPPPP");
+  //       marker_msg_->markers.clear();
+  //       marker_msg_->markers.resize(markers_.size());
+  //       marker_msg_->header.stamp = curr_stamp;
+
+  //       for (std::size_t i = 0; i < markers_.size(); ++i) {
+  //         //RCLCPP_INFO(this->get_logger(), " [8] Processing marker %zu (ID: %d)", i, markers_[i].id);
+  //         aruco_msgs::msg::Marker & marker_i = marker_msg_->markers.at(i);
+  //         marker_i.header.stamp = curr_stamp;
+  //         marker_i.id = markers_.at(i).id;
+  //         marker_i.confidence = 1.0;
+  //         RCLCPP_INFO(this->get_logger(), " DOESN'T RUN - WHERE IT ALALLLLLLL BEGANNNNNNNNNNNNNNN");
+
+  //       }
+
+  //       // if there is camera info let's do 3D stuff
+  //       if (useCamInfo_) {
+  //         //RCLCPP_INFO(this->get_logger(), "[10] Exiting function: image_callback");
+  //         // get the current transform from the camera frame to output ref frame
+  //         tf2::Stamped<tf2::Transform> cameraToReference;
+  //         cameraToReference.setIdentity();
+
+  //         if (reference_frame_ != camera_frame_) {
+  //           //RCLCPP_INFO(this->get_logger(), " [2] Executing some code... ");
+  //           geometry_msgs::msg::TransformStamped transform;
+  //           getTransform(reference_frame_, camera_frame_, transform);
+  //           tf2::fromMsg(transform, cameraToReference);
+  //           // RCLCPP_INFO_STREAM(this->get_logger(), "transform i think is: " << /*MUSTBEAVALUE*/);
+  //         }
+
+  //         // now find the transform for each detected marker
+  //         for (std::size_t i = 0; i < markers_.size(); ++i) {
+  //           RCLCPP_INFO(this->get_logger(), " [2] Executing some code... ");
+  //           aruco_msgs::msg::Marker & marker_i = marker_msg_->markers.at(i);
+  //           tf2::Transform transform = aruco_ros::arucoMarker2Tf2(markers_[i]);
+  //           transform = static_cast<tf2::Transform>(cameraToReference) * transform;
+  //           tf2::toMsg(transform, marker_i.pose.pose);
+  //           // RCLCPP_INFO_STREAM(this->get_logger(), "I think position is: " << "x = " << marker_i.pose.pose.position.x << "  y = " << marker_i.pose.pose.position.y << "z = " << marker_i.pose.pose.position.z);
+
+
+  //           marker_i.header.frame_id = reference_frame_;
+  //         }
+  //         RCLCPP_INFO(this->get_logger(), " [2] Executing some code... ");
+  //       }
+
+  // // RCLCPP_INFO(this->get_logger(), " EXITS MASSSIVE LOOOOOOOOOOOOOOOOOOOOOOPPPPP");
+
+  //       /*DOESN'T PRINT ANYTHIGN*/
+  //       // publish marker array
+  //       if (marker_msg_->markers.size() > 0) {
+  //         //RCLCPP_INFO(this->get_logger(), " ENTERS THIS LAST IF LOOP ");
+  //         // //RCLCPP_INFO(this->get_logger(), "before");
+  //                   // RCLCPP_INFO_STREAM(this->get_logger(),"I think position is: " << "x = " << marker_msg_->markers.pose.pose.position.x << "   y = " << marker_msg_->markers.pose.pose.position.y << "   z = " << marker_msg_->markers.pose.pose.position.z);
+  //         // RCLCPP_INFO_STREAM(this->get_logger(), "I think position is: " << "x = " << marker_i.pose.pose.position.x << "  y = " << marker_i.pose.pose.position.y << "z = " << marker_i.pose.pose.position.z);
+  //         marker_pub_->publish(*marker_msg_);
+  //         // //RCLCPP_INFO(this->get_logger(), "after");
+  //         // RCLCPP_INFO_STREAM(this->get_logger(), "I think position is: " << "x = " << marker_i.pose.pose.position.x << "  y = " << marker_i.pose.pose.position.y << "z = " << marker_i.pose.pose.position.z);
+  //         // RCLCPP_INFO_STREAM(this->get_logger(),"I think position is: " << "x = " << marker_msg_->pose.pose.position.x << "   y = " << marker_msg_->markers.pose.pose.position.y << "   z = " << marker_msg_->markers.pose.pose.position.z);
+  //       }
+  //         //RCLCPP_INFO(this->get_logger(), " exxxxxxxxxxxxxxxxxiiiiiiiiiits THIS LAST IF LOOP ");
+  //     }
+
+
+
+
+
+
+
+
+
+
+/*A ADDITIONS*/
+
+
         marker_msg_->markers.clear();
         marker_msg_->markers.resize(markers_.size());
         marker_msg_->header.stamp = curr_stamp;
 
-        for (std::size_t i = 0; i < markers_.size(); ++i) {
-          //RCLCPP_INFO(this->get_logger(), " [8] Processing marker %zu (ID: %d)", i, markers_[i].id);
-          aruco_msgs::msg::Marker & marker_i = marker_msg_->markers.at(i);
-          marker_i.header.stamp = curr_stamp;
-          marker_i.id = markers_.at(i).id;
-          marker_i.confidence = 1.0;
-        }
+        // for (std::size_t i = 0; i < markers_.size(); ++i) {
+        //   //RCLCPP_INFO(this->get_logger(), " [8] Processing marker %zu (ID: %d)", i, markers_[i].id);
+        //   marker_i = marker_msg_->markers.at(i);
+        //   RCLCPP_INFO(this->get_logger(), "LINE ABOVE IS: WHERE IT ALALLLLLLL BEGANNNNNNNNNNNNNNN");
+        //   marker_i.header.stamp = curr_stamp;
+        //   marker_i.id = markers_.at(i).id;
+        //   marker_i.confidence = 1.0;
 
+        // }
+/*END OF A ADDITIONS*/
+
+
+
+/*A ADDITIONS*/
         // if there is camera info let's do 3D stuff
         if (useCamInfo_) {
           //RCLCPP_INFO(this->get_logger(), "[10] Exiting function: image_callback");
@@ -386,8 +466,17 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
 
           // now find the transform for each detected marker
           for (std::size_t i = 0; i < markers_.size(); ++i) {
-            RCLCPP_INFO(this->get_logger(), " [2] Executing some code... ");
-            aruco_msgs::msg::Marker & marker_i = marker_msg_->markers.at(i);
+
+          //RCLCPP_INFO(this->get_logger(), " [8] Processing marker %zu (ID: %d)", i, markers_[i].id);
+          marker_i = marker_msg_->markers.at(i);
+          RCLCPP_INFO(this->get_logger(), "LINE ABOVE IS: WHERE IT ALALLLLLLL BEGANNNNNNNNNNNNNNN");
+          marker_i.header.stamp = curr_stamp;
+          marker_i.id = markers_.at(i).id;
+          marker_i.confidence = 1.0;
+
+ 
+            // RCLCPP_INFO(this->get_logger(), " [2] Executing some code... ");
+            // marker_i = marker_msg_->markers.at(i);
             tf2::Transform transform = aruco_ros::arucoMarker2Tf2(markers_[i]);
             transform = static_cast<tf2::Transform>(cameraToReference) * transform;
             tf2::toMsg(transform, marker_i.pose.pose);
@@ -396,25 +485,21 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
 
             marker_i.header.frame_id = reference_frame_;
           }
-          RCLCPP_INFO(this->get_logger(), " [2] Executing some code... ");
+          // RCLCPP_INFO(this->get_logger(), " [2] Executing some code... ");
         }
+/*END OF A ADDITIONS*/
 
-  // RCLCPP_INFO(this->get_logger(), " EXITS MASSSIVE LOOOOOOOOOOOOOOOOOOOOOOPPPPP");
 
-        /*DOESN'T PRINT ANYTHIGN*/
-        // publish marker array
-        if (marker_msg_->markers.size() > 0) {
-          //RCLCPP_INFO(this->get_logger(), " ENTERS THIS LAST IF LOOP ");
-          // //RCLCPP_INFO(this->get_logger(), "before");
-                    // RCLCPP_INFO_STREAM(this->get_logger(),"I think position is: " << "x = " << marker_msg_->markers.pose.pose.position.x << "   y = " << marker_msg_->markers.pose.pose.position.y << "   z = " << marker_msg_->markers.pose.pose.position.z);
-          // RCLCPP_INFO_STREAM(this->get_logger(), "I think position is: " << "x = " << marker_i.pose.pose.position.x << "  y = " << marker_i.pose.pose.position.y << "z = " << marker_i.pose.pose.position.z);
-          marker_pub_->publish(*marker_msg_);
-          // //RCLCPP_INFO(this->get_logger(), "after");
-          // RCLCPP_INFO_STREAM(this->get_logger(), "I think position is: " << "x = " << marker_i.pose.pose.position.x << "  y = " << marker_i.pose.pose.position.y << "z = " << marker_i.pose.pose.position.z);
-          // RCLCPP_INFO_STREAM(this->get_logger(),"I think position is: " << "x = " << marker_msg_->pose.pose.position.x << "   y = " << marker_msg_->markers.pose.pose.position.y << "   z = " << marker_msg_->markers.pose.pose.position.z);
-        }
-          //RCLCPP_INFO(this->get_logger(), " exxxxxxxxxxxxxxxxxiiiiiiiiiits THIS LAST IF LOOP ");
-      }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -439,7 +524,7 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
 
       // draw detected markers on the image for visualization
       for (std::size_t i = 0; i < markers_.size(); ++i) {
-                                  RCLCPP_INFO(this->get_logger(), "2222222 ENTERS THIS LASTLASTLASTLAST foooooooorrr LOOP ");
+                                  // RCLCPP_INFO(this->get_logger(), "2222222 ENTERS THIS LASTLASTLASTLAST foooooooorrr LOOP ");
 
         markers_[i].draw(inImage_, cv::Scalar(0, 0, 255), 2);
       }
@@ -458,7 +543,7 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
 
 
                       // markerTrans_.at(i) = getTranslation(markers_[i].getTransformMatrix())[0];
-            // Assuming getTranslation returns a vector of size 3 (x, y, z)
+            // getTranslation returns a vector of size 3 (x, y, z)
 
 
 
@@ -484,7 +569,7 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
              /*OBTAINED THE POSITION VALUES OF THE MARKERS*/
 
 
-            // Assuming getTranslation returns a vector of size 3 (x, y, z)
+            // getTranslation returns a vector of size 3 (x, y, z)
               markerTrans_ = getTranslation( markers_[i].getTransformMatrix() ); // one [x y z] vector returned per iteration
 
               // markerTrans_.push_back( getTranslation( markers_[i].getTransformMatrix() ) );
@@ -494,10 +579,10 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
                   estimated_size = estimated_size * 2;  // Increase size by a factor (adjust as needed)
                   pairing_ID_Pose_.resize(estimated_size);
               }
-              RCLCPP_INFO_STREAM(this->get_logger(), "tag ID: " << pairing_ID_Pose_[j].first << " <-- tag36h11 family   |   (transform derived position:" << "   X: " << pairing_ID_Pose_[j].second.at(0) << "   Y: " << pairing_ID_Pose_[j].second.at(1)<< "   Z: " << pairing_ID_Pose_[j].second.at(2) << " )");
+              // RCLCPP_INFO_STREAM(this->get_logger(), "tag ID: " << pairing_ID_Pose_[j].first << " <-- tag36h11 family   |   (transform derived position:" << "   X: " << pairing_ID_Pose_[j].second.at(0) << "   Y: " << pairing_ID_Pose_[j].second.at(1)<< "   Z: " << pairing_ID_Pose_[j].second.at(2) << " )");
               j++;
-              // RCLCPP_INFO_STREAM(this->get_logger(), "translation x y z is:" << markerTrans_.at(i).at(0)<< markerTrans_.at(i).at(1)<< markerTrans_.at(i).at(2));
 
+            RCLCPP_INFO_STREAM(this->get_logger(), "I think position is: " << "x = " << marker_i.pose.pose.position.x << "  y = " << marker_i.pose.pose.position.y << "z = " << marker_i.pose.pose.position.z);
 
 
               //            || 1 [x y z]    ||   2 [x y z]    ||    3 [x y z]
@@ -506,6 +591,7 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
 
 
 
+              // RCLCPP_INFO_STREAM(this->get_logger(), "translation x y z is:" << markerTrans_.at(i).at(0)<< markerTrans_.at(i).at(1)<< markerTrans_.at(i).at(2));
 
         }
 
@@ -571,8 +657,8 @@ int main(int argc, char ** argv)
   std::shared_ptr<ArucoMarkerPublisher> marker_pub = std::make_shared<ArucoMarkerPublisher>();
   marker_pub->setup();
   rclcpp::spin(marker_pub);
-  std::cout << "does this main even ruang; sikfja;" << std::endl; // RCLCPP_INFO_STREAM(this->get_logger(), "DOESN'T IT RUSNG HTINSG FUNCITON main");
-  std::cout << "correction,. actually runs once;" << std::endl; // RCLCPP_INFO_STREAM(this->get_logger(), "DOESN'T IT RUSNG HTINSG FUNCITON main");
+  // std::cout << "does this main even ruang; sikfja;" << std::endl; // RCLCPP_INFO_STREAM(this->get_logger(), "DOESN'T IT RUSNG HTINSG FUNCITON main");
+  // std::cout << "correction,. actually runs once;" << std::endl; // RCLCPP_INFO_STREAM(this->get_logger(), "DOESN'T IT RUSNG HTINSG FUNCITON main");
 
 
 
