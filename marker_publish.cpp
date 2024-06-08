@@ -480,9 +480,12 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
             tf2::Transform transform = aruco_ros::arucoMarker2Tf2(markers_[i]);
             transform = static_cast<tf2::Transform>(cameraToReference) * transform;
             tf2::toMsg(transform, marker_i.pose.pose);
-            // RCLCPP_INFO_STREAM(this->get_logger(), "tag ID (using tags from tag36h11 family): " << marker_i.id << "     x position = " << marker_i.pose.pose.position.x << "  y position = " << marker_i.pose.pose.position.y << "Depth (z position) = " << marker_i.pose.pose.position.z);
 
-            RCLCPP_INFO_STREAM(this->get_logger(), "tag ID: " << marker_i.id << "     |     POSITION:  x-horizontal: " << marker_i.pose.pose.position.x << "  y-vertical: " << marker_i.pose.pose.position.y << "  z-depth: " << marker_i.pose.pose.position.z<< "      |      QUARTERNION: w: " << marker_i.pose.pose.orientation.w << "  x: " << marker_i.pose.pose.orientation.x << "  y: " << marker_i.pose.pose.orientation.x << "z: " << marker_i.pose.pose.orientation.x);
+            /*TO PRINT JUST POSITION x y z*/
+            // RCLCPP_INFO_STREAM(this->get_logger(), "tag ID (using tags from tag36h11 family): " << marker_i.id << "   LOCATION:  x = " << marker_i.pose.pose.position.x << "metres,  y = " << marker_i.pose.pose.position.y << "metres,  z (Depth) = " << marker_i.pose.pose.position.z << "metres");
+
+            /*TO PRINT JUST POSITION x y z & ORIENTATION (quarterion)*/
+            RCLCPP_INFO_STREAM(this->get_logger(), "tag ID: " << marker_i.id << "          POSITION:  x-horizontal: " << marker_i.pose.pose.position.x << "  y-vertical: " << marker_i.pose.pose.position.y << "  z-depth: " << marker_i.pose.pose.position.z<< "            QUARTERNION: w: " << marker_i.pose.pose.orientation.w << "  x: " << marker_i.pose.pose.orientation.x << "  y: " << marker_i.pose.pose.orientation.x << "z: " << marker_i.pose.pose.orientation.x);
 
 
             marker_i.header.frame_id = reference_frame_;
