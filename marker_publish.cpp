@@ -128,8 +128,6 @@ private:
 
 
 
-  /*A ADDITIONS*/
-  std::vector<std::vector<double>> markerTrans_;
 
 
 
@@ -166,10 +164,29 @@ private:
   bool useCamInfo_;
   std_msgs::msg::UInt32MultiArray marker_list_msg_;
 
-public:
+public:   // std::vector<std::vector<double>> markerTrans_;
+  std::vector<double> markerTrans_;
+  // std::vector<double> markerTrans_;
+  std::vector<std::pair<int,std::vector<double>>> pairing_ID_Pose_;
+  // Estimate the number of unique pairings (replace with your actual estimate)
+  int estimated_pairings = 10000;
+
+  // Estimate the number of doubles per pose (replace with your actual estimate)
+  int doubles_per_pose = 6;
+  // Calculate the total estimated size
+  int estimated_size = estimated_pairings * doubles_per_pose;
+  int j=0;
   ArucoMarkerPublisher()
   : Node("marker_publisher"), useCamInfo_(true)
-  {
+  {/*A ADDITIONS*/
+ 
+
+
+
+  // Create the vector and pre-allocate memory
+  pairing_ID_Pose_.reserve(estimated_size);
+
+
   }
   //A ADDITIONS - MODIFIED SETUP FUNCITON
   bool setup()
@@ -188,7 +205,7 @@ public:
     tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
 
     it_ = std::make_unique<image_transport::ImageTransport>(shared_from_this());
-    image_sub_ = it_->subscribe("/camera/color/image_raw", 1, &ArucoMarkerPublisher::image_callback, this);
+    image_sub_ = it_->subscribe("/camera/color/image_raw", 1, &ArucoMarkerPublisher::image_callback, this); // A ADDITIONS - modified to topic used by the intel realsense RGBD camera
 
     this->get_parameter_or<bool>("use_camera_info", useCamInfo_, true);
     if (useCamInfo_) {
@@ -196,7 +213,7 @@ public:
       sensor_msgs::msg::CameraInfo camera_info;
       rclcpp::wait_for_message<sensor_msgs::msg::CameraInfo>(
         camera_info,
-        shared_from_this(), "/camera/color/camera_info");
+        shared_from_this(), "/camera/color/camera_info"); // A ADDITIONS - modified to topic used by the intel realsense RGBD camera 
       //RCLCPP_INFO(this->get_logger(), "Successfully obtained the camera info!");
 
 
@@ -268,8 +285,7 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
   return translationM;
 }
 
-
-
+/*END OF A ADDITIONS*/
 
 
 
@@ -336,7 +352,7 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
       markers_.clear();
 
       // ok, let's detect
-      mDetector_.detect(inImage_, markers_, camParam_, marker_size_, false);
+      mDetector_.detect(inImage_, markers_, camParam_, marker_size_, false);                                                              // A NOTES: THE FIRST CORE FUNCTION FOR THIS EXECUTABLE TO DO ITS JOB
 
       // marker array publish
       if (publishMarkers) {
@@ -375,7 +391,7 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
             tf2::Transform transform = aruco_ros::arucoMarker2Tf2(markers_[i]);
             transform = static_cast<tf2::Transform>(cameraToReference) * transform;
             tf2::toMsg(transform, marker_i.pose.pose);
-            RCLCPP_INFO_STREAM(this->get_logger(), "I think position is: " << "x = " << marker_i.pose.pose.position.x << "  y = " << marker_i.pose.pose.position.y << "z = " << marker_i.pose.pose.position.z);
+            // RCLCPP_INFO_STREAM(this->get_logger(), "I think position is: " << "x = " << marker_i.pose.pose.position.x << "  y = " << marker_i.pose.pose.position.y << "z = " << marker_i.pose.pose.position.z);
 
 
             marker_i.header.frame_id = reference_frame_;
@@ -383,7 +399,7 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
           RCLCPP_INFO(this->get_logger(), " [2] Executing some code... ");
         }
 
-  RCLCPP_INFO(this->get_logger(), " EXITS MASSSIVE LOOOOOOOOOOOOOOOOOOOOOOPPPPP");
+  // RCLCPP_INFO(this->get_logger(), " EXITS MASSSIVE LOOOOOOOOOOOOOOOOOOOOOOPPPPP");
 
         /*DOESN'T PRINT ANYTHIGN*/
         // publish marker array
@@ -400,6 +416,12 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
           //RCLCPP_INFO(this->get_logger(), " exxxxxxxxxxxxxxxxxiiiiiiiiiits THIS LAST IF LOOP ");
       }
 
+
+
+      // A NOTES: MANIPULATION OF ORIENTATION AND POSITION CAN HAPPEN BELOW (specifically in each FOR loop)
+
+
+
       if (publishMarkersList) {
                   //RCLCPP_INFO(this->get_logger(), " ENTERS THIS LASTLASTLASTLAST IF LOOP ");
 
@@ -413,7 +435,7 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
 
         marker_list_pub_->publish(marker_list_msg_);
       }
-          RCLCPP_INFO(this->get_logger(), " exxxxxxxxxxxxxxxxxiiiiiiiiiits THIS LAST IF LOOP ");
+          // RCLCPP_INFO(this->get_logger(), " exxxxxxxxxxxxxxxxxiiiiiiiiiits THIS LAST IF LOOP ");
 
       // draw detected markers on the image for visualization
       for (std::size_t i = 0; i < markers_.size(); ++i) {
@@ -459,29 +481,26 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
 
 
 
-          /*OBTAINED THE POSITION VALUES OF THE MARKERS*/
+             /*OBTAINED THE POSITION VALUES OF THE MARKERS*/
 
 
             // Assuming getTranslation returns a vector of size 3 (x, y, z)
-            markerTrans_.push_back(getTranslation(markers_[i].getTransformMatrix()));
-              RCLCPP_INFO_STREAM(this->get_logger(), "translation x y z is:" << markerTrans_.at(i).at(0)<< markerTrans_.at(i).at(1)<< markerTrans_.at(i).at(2));
+              markerTrans_ = getTranslation( markers_[i].getTransformMatrix() ); // one [x y z] vector returned per iteration
+
+              // markerTrans_.push_back( getTranslation( markers_[i].getTransformMatrix() ) );
+              pairing_ID_Pose_.push_back(std::make_pair(markers_[i].id,markerTrans_));
+
+              if (pairing_ID_Pose_.size() >= 60000) { //estimated_size
+                  estimated_size = estimated_size * 2;  // Increase size by a factor (adjust as needed)
+                  pairing_ID_Pose_.resize(estimated_size);
+              }
+              RCLCPP_INFO_STREAM(this->get_logger(), "tag ID: " << pairing_ID_Pose_[j].first << " <-- tag36h11 family   |   (transform derived position:" << "   X: " << pairing_ID_Pose_[j].second.at(0) << "   Y: " << pairing_ID_Pose_[j].second.at(1)<< "   Z: " << pairing_ID_Pose_[j].second.at(2) << " )");
+              j++;
+              // RCLCPP_INFO_STREAM(this->get_logger(), "translation x y z is:" << markerTrans_.at(i).at(0)<< markerTrans_.at(i).at(1)<< markerTrans_.at(i).at(2));
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+              //            || 1 [x y z]    ||   2 [x y z]    ||    3 [x y z]
 
 
 
@@ -490,7 +509,7 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
 
         }
 
-                                                  RCLCPP_INFO(this->get_logger(), "e12345i212345i212345i212345i2xits for but still in if LOOPPPPPPPPPPPPPPPPPPPPP ");
+                                                  // RCLCPP_INFO(this->get_logger(), "e12345i212345i212345i212345i2xits for but still in if LOOPPPPPPPPPPPPPPPPPPPPP ");
 
       }
                                           //RCLCPP_INFO(this->get_logger(), "2222222 exits THIS LASTLASTLASTLAST if LOOP ");
@@ -521,6 +540,23 @@ std::vector<double> getTranslation(const cv::Mat &transformMatrix) {
       }
                                                 //RCLCPP_INFO(this->get_logger(), "4444 exits THIS LASTLASTLASTLAST if LOOP ");
 
+
+
+
+// for (std::size_t i = 0; i < markers_.size(); ++i) {
+//       /*A ADDITIONS*/
+//       std::cout << "all recorded poses will now be printed out..." << std::endl;
+//               // RCLCPP_INFO_STREAM(this->get_logger(), "translation x y z is:" << markerTrans_.at(i).at(0)<< markerTrans_.at(i).at(1)<< markerTrans_.at(i).at(2));
+//       for (unsigned long int i = 0; i < pairing_ID_Pose_.size(); i++){
+//       RCLCPP_INFO_STREAM(this->get_logger(), "tag ID: " << pairing_ID_Pose_[i].first << " <-- tag36h11 family   |   (POSITION:" << "   X: " << pairing_ID_Pose_[i].second.at(0) << "   Y: " << pairing_ID_Pose_[i].second.at(1)<< "   Z: " << pairing_ID_Pose_[i].second.at(2) << " )");
+//       }
+
+
+
+
+
+
+
     }catch (cv_bridge::Exception & e) {
                                                           //RCLCPP_INFO(this->get_logger(), "ENTERED CATCH ");
       RCLCPP_ERROR(this->get_logger(), "cv_bridge exception: %s", e.what());
@@ -537,5 +573,13 @@ int main(int argc, char ** argv)
   rclcpp::spin(marker_pub);
   std::cout << "does this main even ruang; sikfja;" << std::endl; // RCLCPP_INFO_STREAM(this->get_logger(), "DOESN'T IT RUSNG HTINSG FUNCITON main");
   std::cout << "correction,. actually runs once;" << std::endl; // RCLCPP_INFO_STREAM(this->get_logger(), "DOESN'T IT RUSNG HTINSG FUNCITON main");
+
+
+
+// pairing_ID_Pose_[i].first
+// pairing_ID_Pose_[i].second.at(0)
+// pairing_ID_Pose_[i].second.at(1)
+// pairing_ID_Pose_[i].second.at(2)
+
   rclcpp::shutdown();
 }
