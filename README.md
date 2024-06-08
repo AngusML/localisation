@@ -4,9 +4,8 @@ NOTE:
 For this project, I'm using ROS2 and ubuntu version is humble.
 This README.md is for client to follow the steps for ease of setup (if needed) and assessment of the work I have done.
 places where i have edited code are commented 'A ADDITIONS' 
-INFO:
 
-=============
+INFO:
 1. using tag 0, 1, 2, 3, and 4 of tag36h11 family
 2. height and width of each tag is 0.05m by 50mm
 
