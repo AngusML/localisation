@@ -17,9 +17,9 @@ This README.md is for client to follow the steps for ease of setup (if needed) a
 places where i have edited code are commented 'A ADDITIONS' OR 'A NOTES'
 
 INFO:
-1. using tag 0, 1, 2, 3, and 4 of tag36h11 family
+1. using tag 0, 1, 2, 3, and 4 of tag36h11 family: https://github.com/AprilRobotics/apriltag-imgs/tree/master/tag36h11
+
 2. height and width of each tag is 0.05m by 50mm
-https://github.com/AprilRobotics/apriltag-imgs/tree/master/tag36h11
 
 INITIAL DIRECTORY SETUP
 ===
