@@ -117,4 +117,4 @@ PART 4:
 
 	image_pub_.publish(out_msg.toImageMsg())
 
-   /n NOTE: a few minor functions are left out
+   NOTE: a few minor functions are left out
