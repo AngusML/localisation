@@ -1,5 +1,7 @@
 # localisation
 
+FYI: The files in the top-level directory are ones I’ve edited. It is also found inside src directory.
+
 NOTE:
 For this project, I'm using ROS humble and ubuntu 22.04.4 LTS (jammy).
 Terminal commands to check version are:
