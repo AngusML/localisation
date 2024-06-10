@@ -97,23 +97,24 @@ MARKER_PUBLISH.CPP BREAKDOWN
 
 PART 1:
 
-	/n parameterised void aruco::MarkDetector::detect()
+	parameterised void aruco::MarkDetector::detect()
 
 PART 2:
 
-	/n parameterised bool ArucoMarkerPPublisher::getTransform()
-	/n parameterised tf2::fromMsg()
-	/n parameterised tf2::Transform aruco_ros::arucoMarker2Tf2()
+	parameterised bool ArucoMarkerPPublisher::getTransform()
+	parameterised tf2::fromMsg()
+	parameterised tf2::Transform aruco_ros::arucoMarker2Tf2()
 
 PART 3:
 
-	/n rclcpp::Publisher<std_msgs::msg::UInt32MultiArray>::publish<std_msgs::msg::UInt32MultiArray>(const 
-	/n marker_list_pub_->publish(marker_list_msg_)
-	/n std_msgs::msg::UInt32MultiArray &msg)
-	/n parameterised void aruco::Marker::draw()
-	/n parameterised static void aruco::CvDrawingUtils::draw3DAxis()
+	rclcpp::Publisher<std_msgs::msg::UInt32MultiArray>::publish<std_msgs::msg::UInt32MultiArray>(const 
+	marker_list_pub_->publish(marker_list_msg_)
+	std_msgs::msg::UInt32MultiArray &msg)
+	parameterised void aruco::Marker::draw()
+	parameterised static void aruco::CvDrawingUtils::draw3DAxis()
 
 PART 4:
-/n image_pub_.publish(out_msg.toImageMsg())
+
+	image_pub_.publish(out_msg.toImageMsg())
 
    /n NOTE: a few minor functions are left out
