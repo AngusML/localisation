@@ -1,7 +1,16 @@
 # localisation
 
 NOTE:
-For this project, I'm using ROS2 and ubuntu version is humble.
+For this project, I'm using ROS humble and ubuntu 22.04.4 LTS (jammy).
+Terminal commands to check version are:
+ubuntu:
+1. lsb_release -a
+ros:
+1. rosversion -d
+OR
+2. echo $ROS_DISTRO
+
+
 This README.md is for client to follow the steps for ease of setup (if needed) and assessment of the work I have done.
 places where i have edited code are commented 'A ADDITIONS' OR 'A NOTES'
 
@@ -68,5 +77,7 @@ In the lines that prints the location of tags, going forward we can potential ad
 Offsetting - xyz position of tags on paper will compute camera's fixed position. Then setting an integer or double value in mm (as per the unnit of the code) of camera's fixed position relative to UR3 base position and using forward kinematics to find end effectors position. This allows the code to integrate to the path planning of UR3 to draw on paper.
 
 NOTE: CHANGE getTranslation() function TO RETURN THE POSITION OF EACH ID (PAIR IT WITH EACH ID) (aka. each ‘i’ iterator)
+
+update: getTranslation() is now not used
 
 
