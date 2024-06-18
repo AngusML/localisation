@@ -95,26 +95,27 @@ MARKER_PUBLISH.CPP BREAKDOWN
 
 [image_callback()] - core sub-functions of image_callback() function
 
-PART 1:
+PART 1: DETECTION
 
 	parameterised void aruco::MarkDetector::detect()
-
-PART 2:
+		- responsible for detecting tags
+PART 2: TRANSFORMATION ESTIMATION
 
 	parameterised bool ArucoMarkerPPublisher::getTransform()
 	parameterised tf2::fromMsg()
 	parameterised tf2::Transform aruco_ros::arucoMarker2Tf2()
 
-PART 3:
+PART 3: DRAWING
 
 	rclcpp::Publisher<std_msgs::msg::UInt32MultiArray>::publish<std_msgs::msg::UInt32MultiArray>(const 
 	marker_list_pub_->publish(marker_list_msg_)
 	std_msgs::msg::UInt32MultiArray &msg)
 	parameterised void aruco::Marker::draw()
+ 		- setting drawing features using OpenCV functions
 	parameterised static void aruco::CvDrawingUtils::draw3DAxis()
 
-PART 4:
+PART 4: IMAGE PUBLISHING
 
 	image_pub_.publish(out_msg.toImageMsg())
-
+		- transfport image results from augmented information for RViz
    NOTE: a few minor functions are left out
